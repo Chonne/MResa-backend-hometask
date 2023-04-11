@@ -46,6 +46,10 @@ Either I haven't had time to implement the features or it wasn't in the scope of
 - use a DTO for `GET /buyers` query params
 - adapt the appointment conflict response to include more details to better identify the conflicting appointments, perhaps by including the list of appointment entities in the response
 - include the api in the docker-compose
+- include transactions? I haven't noticed anywhere they would be needed
+- validate `Appointment.link` as an url?
+- fix(appointment): changing the type must reset link or location
+- use `AppointmentType` in the tests
 
 ## Description
 
