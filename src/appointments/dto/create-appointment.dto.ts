@@ -11,7 +11,7 @@ import {
   Validate,
   ValidateIf,
 } from 'class-validator';
-import { IsBeforeConstraint } from 'src/class-validator/is-before.constraint';
+import { IsBeforeConstraint } from '../../class-validator/is-before.constraint';
 
 export class CreateAppointmentDto {
   @IsString()
