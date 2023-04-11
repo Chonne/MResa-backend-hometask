@@ -27,16 +27,16 @@ export class AppointmentsService {
     return {
       OR: [
         {
-          startTime: { lte: new Date(startTime) },
-          endTime: { gte: new Date(startTime) },
+          startTime: { lte: startTime },
+          endTime: { gte: startTime },
         },
         {
-          startTime: { lte: new Date(endTime) },
-          endTime: { gte: new Date(endTime) },
+          startTime: { lte: endTime },
+          endTime: { gte: endTime },
         },
         {
-          startTime: { gte: new Date(startTime) },
-          endTime: { lte: new Date(endTime) },
+          startTime: { gte: startTime },
+          endTime: { lte: endTime },
         },
       ],
     };
