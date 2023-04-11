@@ -9,6 +9,11 @@ import { AppointmentEntity } from './entities/appointment.entity';
 export class AppointmentsService {
   constructor(private prisma: PrismaService) {}
 
+  /**
+   * Returns the where params to filter for a specific day
+   * @param {string} date format: YYYY-MM-DD. This is not enforced
+   * @returns a filter object to add to a `where` option
+   */
   private filterByDate(date: string): Prisma.AppointmentWhereInput {
     const dateFilter = {
       gte: new Date(date),
