@@ -33,10 +33,10 @@ export class AppointmentsService {
       OR: [
         {
           startTime: { lte: startTime },
-          endTime: { gte: startTime },
+          endTime: { gt: startTime },
         },
         {
-          startTime: { lte: endTime },
+          startTime: { lt: endTime },
           endTime: { gte: endTime },
         },
         {
