@@ -4,7 +4,7 @@
 
 A few things that seem worthy to note to better understand what I've done:
 
-- I've never worked with Nestjs and Prisma so there may be some features and best practices that I've missed and would gladly learn about.
+- I've never worked with Nestjs and Prisma so there may be some features and best practices that I've missed and would gladly learn about. Same thing about typescript, which I haven't used much.
 - The stack I've chosen is based on the one described in the company's profile.
 - Some routes were added for ease of use and because, well, it was quick to do with nest's resource generator.
 - I wrote tests after writing the code, as I'm not used to TDD.
