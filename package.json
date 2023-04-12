@@ -9,6 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prepare:config": "cp .env.dist .env && docker-compose.override.yml.dist docker-compose.override.yml",
+    "prepare:config:test": "cp .env.dist .env.test && docker-compose.override.test.yml.dist docker-compose.override.test.yml",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -18,8 +19,10 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "test:e2e:prepare-db": "prisma migrate deploy && npm run test:e2e"
+    "test:e2e": "dotenv -e .env.test -- jest --config ./test/jest-e2e.json",
+    "test:e2e:prepare-db": "dotenv -e .env.test -- npx prisma migrate deploy",
+    "test:run-db": "docker compose --env-file .env.test -f docker-compose.yml -f docker-compose.override.test.yml up -d",
+    "test:stop-db": "docker compose --env-file .env.test -f docker-compose.yml -f docker-compose.override.test.yml down"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -30,6 +33,7 @@
     "@prisma/client": "^4.12.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "dotenv-cli": "^7.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.6.2"
