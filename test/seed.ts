@@ -1,6 +1,21 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 
-export const seedDatabase = async (prisma: PrismaService) => {
+export const seedDatabase = async (
+  prisma: PrismaService,
+): Promise<{
+  buyers: { id: number; name: string; company: string }[];
+  vendors: { id: number; name: string }[];
+  appointments: {
+    id: number;
+    title: string;
+    type: string;
+    link: string;
+    startTime: Date;
+    endTime: Date;
+    hostId: number;
+    clientId: number;
+  }[];
+}> => {
   const buyers = await Promise.all([
     prisma.buyer.create({
       data: {
@@ -35,7 +50,7 @@ export const seedDatabase = async (prisma: PrismaService) => {
     }),
   ]);
 
-  await Promise.all([
+  const appointments = await Promise.all([
     prisma.appointment.create({
       data: {
         title: 'Virtual Appointment 01/01 10-12',
@@ -70,4 +85,10 @@ export const seedDatabase = async (prisma: PrismaService) => {
       },
     }),
   ]);
+
+  return {
+    buyers,
+    vendors,
+    appointments,
+  };
 };
