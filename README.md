@@ -17,6 +17,7 @@ I've assumed a few details to ease development. Of course, they should be discus
 
 - titles and names are unique: this was mostly to make seeding easier. It should be adapted to real constraints as it's not realistic, eg something like an email for buyers/vendors or a human-readable id
 - appointments can be created in the past to allow backlogging, in case a buyer or vendor had forgotten to add one and wanted it in their history
+- appointments can end and begin at the same time, ie appointment A ends at 10:00 and appointment B begins at 10:00. Even though that's not a good practice, I'm sure it happens.
 
 ### What I've done
 
@@ -26,7 +27,7 @@ I've assumed a few details to ease development. Of course, they should be discus
 - define the prisma schema, entities, DTOs and seeds
 - add openapi decorators
 - implemented the expected features (the name/company search is very basic)
-- (not yet) wrote e2e tests and a few unit tests
+- wrote e2e tests and a few unit tests
 
 ### What I would do next
 
@@ -50,6 +51,7 @@ Either I haven't had time to implement the features or it wasn't in the scope of
 - validate `Appointment.link` as an url?
 - fix(appointment): changing the type must reset link or location
 - use `AppointmentType` in the tests
+- use unit tests to have better code coverage
 
 ## Description
 
@@ -111,16 +113,29 @@ Swagger is enabled and accessible there (if run locally): <http://localhost:3000
 
 ## Test
 
+### Unit tests
+
 ```bash
-# unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
+
+### End to end tests
+
+The e2e tests require a running db so you'll need to setup an env for them.
+
+Run the command `npm run prepare:config:test`.
+
+Then edit the newly created files if needed (the default values should be fine):
+- `.env.test`
+- `docker-compose.override.test.yml`
+
+If you're using the provided db, you can run it in the background with `npm run test:run-db`
+
+Create the database (you may need to wait a few seconds for the db to be available): `npm run test:e2e:prepare-db`
+
+Run the tests: `npm run test:e2e`
+
+If everything's working well, you can stop the db: `npm run test:stop-db`
 
 ## License
 
