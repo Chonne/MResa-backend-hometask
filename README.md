@@ -75,6 +75,7 @@ npm run prepare:config
 ```
 
 Edit the config filesto your liking:
+
 - `.env`
 - `docker-compose.override.yml`
 
@@ -123,7 +124,7 @@ Swagger is enabled and accessible there (if run locally): <http://localhost:3000
 ### Unit tests
 
 ```bash
-$ npm run test
+npm run test
 ```
 
 ### End to end tests
@@ -133,6 +134,7 @@ The e2e tests require a running db so you'll need to setup an env for them.
 Run the command `npm run prepare:config:test`.
 
 Then edit the newly created files if needed (the default values should be fine):
+
 - `.env.test`
 - `docker-compose.override.test.yml`
 
