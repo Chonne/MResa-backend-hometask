@@ -72,15 +72,24 @@ For local dev:
 ```bash
 # this will create local config from dist files
 npm run prepare:config
-# make sure you edit the config to your liking
+```
 
-# then run the following command, it will:
+Edit the config filesto your liking:
+- `.env`
+- `docker-compose.override.yml`
+
+Make sure your db is running. If you want to use the db defined in docker-compose, run this: `docker-compose up -d`
+
+Initialize the db:
+
+```bash
+# this command will:
 # generate the prisma client
 # generate the db and tables
 npx prisma migrate dev
 ```
 
-If you want to add some dummy data to your local db (make sure the db's running):
+If you want to add some dummy data to your local db:
 
 ```bash
 npx prisma db seed
@@ -88,11 +97,9 @@ npx prisma db seed
 
 ## Running the app
 
-If you want to use the db defined in docker-compose, run this before the other commands:
+If you want to use the db defined in docker-compose, run this before the other commands: `docker-compose up -d`
 
-```bash
-docker-compose up -d
-```
+Don't forget to stop the container with a command like this one: `docker-compose down`
 
 Launch the server (default port is 3000):
 
