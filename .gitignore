@@ -16,6 +16,7 @@ lerna-debug.log*
 
 # Tests
 /coverage
+/test/coverage
 /.nyc_output
 
 # IDEs and editors
@@ -39,4 +40,5 @@ lerna-debug.log*
 
 # Configuration
 .env
-docker-compose.*override.yml
+.env.test
+docker-compose.override*.yml
