@@ -1,5 +1,15 @@
 # MResa Backend Hometask
 
+## Description
+
+This project is a technical hometask for a backend job.
+
+The aim is to create a simple api with a simplistic db model to manage vendors, buyers and allow them to book non conflicting appointments together.
+
+Main stack: Nestjs, typescript, prisma, postgresql.
+
+It was first built using Nestjs' generator.
+
 ## Disclaimer
 
 A few things that seem worthy to note to better understand what I've done:
@@ -52,14 +62,6 @@ Either I haven't had time to implement the features or it wasn't in the scope of
 - fix(appointment): changing the type must reset link or location
 - use `AppointmentType` in the tests
 - use unit tests to have better code coverage
-
-## Description
-
-This project is a technical hometask for a backend job.
-
-Main stack: Nestjs, typescript, prisma, postgresql.
-
-It was first built using Nestjs' generator.
 
 ## Installation
 
